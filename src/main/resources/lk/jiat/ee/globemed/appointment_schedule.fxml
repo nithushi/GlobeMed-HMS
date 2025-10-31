@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="lk.jiat.ee.globemed.AppointmentSchedule"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #f8fafc; -fx-font-family: 'Poppins', 'Segoe UI', 'Arial', sans-serif;">
+
+    <!-- Main Content with ScrollPane -->
+    <ScrollPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+                fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+
+        <VBox spacing="30" style="-fx-padding: 40;">
+            <StackPane>
+                <!-- Card Shadow -->
+                <Region style="-fx-background-color: rgba(0,0,0,0.05); -fx-background-radius: 25;
+                  -fx-translate-x: 3; -fx-translate-y: 6;"/>
+
+                <!-- Main Card -->
+                <VBox spacing="30" style="-fx-background-color: white; -fx-background-radius: 22;
+                          -fx-padding: 35; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15,0,0,5);">
+
+                    <!-- Card Header -->
+                    <HBox spacing="20" alignment="CENTER_LEFT">
+                        <StackPane>
+                            <Region prefWidth="60" prefHeight="60"
+                                    style="-fx-background-color: #e0f2fe; -fx-background-radius: 30;"/>
+                            <Label text="🩺" style="-fx-font-size: 28px;"/>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label text="Book New Appointment"
+                                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+                            <Label text="Schedule your healthcare appointment with ease"
+                                   style="-fx-font-size: 14px; -fx-text-fill: #6b7280;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Elegant Separator -->
+                    <Region prefHeight="1" style="-fx-background-color: #e5e7eb;"/>
+
+                    <!-- Improved Form Grid -->
+                    <GridPane hgap="25" vgap="20" style="-fx-padding: 5 0;">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" minWidth="300"/>
+                            <ColumnConstraints percentWidth="50" minWidth="300"/>
+                        </columnConstraints>
+
+                        <!-- Row 0: Personal Information Section Header -->
+                        <HBox spacing="10" alignment="CENTER_LEFT"
+                              GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                              style="-fx-padding: 0 0 10 0;">
+                            <StackPane>
+                                <Region prefWidth="32" prefHeight="32"
+                                        style="-fx-background-color: #dbeafe; -fx-background-radius: 16;"/>
+                                <Label text="👤" style="-fx-font-size: 18px;"/>
+                            </StackPane>
+                            <Label text="Personal Information"
+                                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="Required fields *"
+                                   style="-fx-font-size: 11px; -fx-text-fill: #ef4444; -fx-font-style: italic;"/>
+                        </HBox>
+
+                        <!-- Row 1: Full Name -->
+                        <VBox spacing="8" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                            <HBox spacing="3">
+                                <Label text="Full Name"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                                <Label text="*" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                            </HBox>
+                            <TextField fx:id="patientNameField" promptText="Enter patient's full name"
+                                       prefHeight="45"
+                                       style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1;
+                                  -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 15;
+                                  -fx-font-size: 14px; -fx-prompt-text-fill: #94a3b8;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5,0,0,2);
+                                  -fx-focus-color: #3b82f6; -fx-faint-focus-color: transparent;"/>
+                        </VBox>
+
+                        <!-- Row 1: Contact Number -->
+                        <VBox spacing="8" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                            <HBox spacing="3">
+                                <Label text="Contact Number"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                                <Label text="*" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                            </HBox>
+                            <TextField fx:id="contactField" promptText="+94 xx xxx xxxx"
+                                       prefHeight="45"
+                                       style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1;
+                                  -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 15;
+                                  -fx-font-size: 14px; -fx-prompt-text-fill: #94a3b8;
+                                  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5,0,0,2);
+                                  -fx-focus-color: #3b82f6; -fx-faint-focus-color: transparent;"/>
+                        </VBox>
+
+                        <!-- Row 2: Medical Information Section Header -->
+                        <HBox spacing="10" alignment="CENTER_LEFT"
+                              GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                              style="-fx-padding: 15 0 10 0;">
+                            <StackPane>
+                                <Region prefWidth="32" prefHeight="32"
+                                        style="-fx-background-color: #dcfce7; -fx-background-radius: 16;"/>
+                                <Label text="🏥" style="-fx-font-size: 18px;"/>
+                            </StackPane>
+                            <Label text="Medical Information"
+                                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+                        </HBox>
+
+                        <!-- Row 3: Healthcare Department (Full Width) -->
+                        <VBox spacing="8" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                            <HBox spacing="3">
+                                <Label text="Healthcare Department"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                                <Label text="*" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                            </HBox>
+                            <ComboBox fx:id="facilityComboBox" promptText="Select healthcare department"
+                                      prefHeight="45" maxWidth="Infinity"
+                                      style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1;
+                                 -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 15;
+                                 -fx-font-size: 14px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5,0,0,2);
+                                 -fx-focus-color: #3b82f6; -fx-faint-focus-color: transparent;"/>
+                        </VBox>
+
+                        <!-- Row 4: Medical Specialist -->
+                        <VBox spacing="8" GridPane.rowIndex="4" GridPane.columnIndex="0">
+                            <HBox spacing="3">
+                                <Label text="Medical Specialist"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                                <Label text="*" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                            </HBox>
+                            <ComboBox fx:id="specialistComboBox" promptText="Select specialist doctor"
+                                      prefHeight="45" maxWidth="Infinity"
+                                      style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1;
+                                 -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 15;
+                                 -fx-font-size: 14px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5,0,0,2);
+                                 -fx-focus-color: #3b82f6; -fx-faint-focus-color: transparent;"/>
+                        </VBox>
+
+                        <!-- Row 4: Appointment Date -->
+                        <VBox spacing="8" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                            <HBox spacing="3">
+                                <Label text="Appointment Date"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                                <Label text="*" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                            </HBox>
+                            <DatePicker fx:id="datePicker" promptText="Select appointment date"
+                                        prefHeight="45" maxWidth="Infinity"
+                                        style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1;
+                                   -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 15;
+                                   -fx-font-size: 14px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5,0,0,2);
+                                   -fx-focus-color: #3b82f6; -fx-faint-focus-color: transparent;"/>
+                        </VBox>
+
+                        <!-- Row 5: Schedule Section Header -->
+                        <HBox spacing="10" alignment="CENTER_LEFT"
+                              GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                              style="-fx-padding: 15 0 10 0;">
+                            <StackPane>
+                                <Region prefWidth="32" prefHeight="32"
+                                        style="-fx-background-color: #fef3c7; -fx-background-radius: 16;"/>
+                                <Label text="⏰" style="-fx-font-size: 18px;"/>
+                            </StackPane>
+                            <Label text="Appointment TimeSlots"
+                                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+                            <Region HBox.hgrow="ALWAYS"/>
+                            <Label text="Select your preferred time slot"
+                                   style="-fx-font-size: 11px; -fx-text-fill: #6b7280; -fx-font-style: italic;"/>
+                        </HBox>
+
+                        <!-- Row 6: Available Time Slots (Full Width) -->
+                        <VBox spacing="8" GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                            <HBox spacing="3">
+                                <Label text="Available Time Slots"
+                                       style="-fx-font-size: 14px; -fx-text-fill: #374151; -fx-font-weight: 600;"/>
+                                <Label text="*" style="-fx-text-fill: #ef4444; -fx-font-size: 12px;"/>
+                            </HBox>
+                            <ComboBox fx:id="timeSlotComboBox" promptText="Choose your preferred time slot"
+                                      prefHeight="48" maxWidth="Infinity"
+                                      style="-fx-background-color: #ffffff; -fx-border-color: #cbd5e1;
+                                 -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 15;
+                                 -fx-font-size: 14px; -fx-font-weight: 500;
+                                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.03), 5,0,0,2);
+                                 -fx-focus-color: #3b82f6; -fx-faint-focus-color: transparent;"/>
+                        </VBox>
+                    </GridPane>
+
+                    <!-- Action Buttons -->
+                    <HBox spacing="15" alignment="CENTER" style="-fx-padding: 25 0 15 0;">
+                        <Button text="📅 Book Appointment" onAction="#onBookAppointment"
+                                prefWidth="180" prefHeight="50"
+                                style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-weight: 600;
+                           -fx-font-size: 14px; -fx-pref-width: 180px; -fx-padding: 12 0; -fx-cursor: hand"/>
+                        <Button text="🔍 Check Availability" onAction="#onCheckAvailability"
+                                prefWidth="180" prefHeight="50"
+                                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: 600;
+                           -fx-font-size: 14px; -fx-cursor: hand;
+                           -fx-pref-width: 180px; -fx-padding: 12 0;"/>
+                        <Button text="🗑️ Clear Form" onAction="#onClearForm"
+                                prefWidth="150" prefHeight="50"
+                                style="-fx-background-color: #f59e0b; -fx-text-fill: white; -fx-font-weight: 600;
+                           -fx-font-size: 14px; -fx-cursor: hand;
+                           -fx-pref-width: 180px; -fx-padding: 12 0;"/>
+                    </HBox>
+
+                    <!-- Status/Conflict Display Area -->
+                    <StackPane style="-fx-padding: 10 0 0 0;">
+                        <Region prefHeight="55"
+                                style="-fx-background-color: #fef2f2; -fx-background-radius: 12;
+                           -fx-border-color: #fecaca; -fx-border-radius: 12; -fx-border-width: 1;"/>
+                        <Label fx:id="conflictLabel" text=""
+                               style="-fx-text-fill: #dc2626; -fx-font-size: 14px; -fx-font-weight: 600;
+                          -fx-padding: 15; -fx-alignment: center;"
+                               visible="false" wrapText="true"/>
+                    </StackPane>
+                </VBox>
+            </StackPane>
+
+
+            <!-- Schedule Overview Card -->
+            <StackPane>
+                <!-- Card Shadow -->
+                <Region style="-fx-background-color: rgba(0,0,0,0.04); -fx-background-radius: 25;
+                              -fx-translate-x: 3; -fx-translate-y: 6;"/>
+
+                <!-- Schedule Card -->
+                <VBox style="-fx-background-color: white; -fx-background-radius: 22;
+                            -fx-padding: 35; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15,0,0,5);">
+
+                    <!-- Schedule Header -->
+                    <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 0 0 20 0;">
+                        <StackPane>
+                            <Region prefWidth="60" prefHeight="60"
+                                    style="-fx-background-color: #f3e8ff; -fx-background-radius: 30;"/>
+                            <Label text="📊" style="-fx-font-size: 28px;"/>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label text="Staff Schedule Overview"
+                                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+                            <Label text="Real-time view of doctor availability and schedules"
+                                   style="-fx-font-size: 14px; -fx-text-fill: #6b7280;"/>
+                        </VBox>
+
+                        <!-- Toggle View -->
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <VBox spacing="5" alignment="CENTER_RIGHT">
+                            <Label text="View Mode"
+                                   style="-fx-font-size: 12px; -fx-text-fill: #6b7280;"/>
+                            <HBox spacing="5">
+                                <Button text="📅 Today"
+                                        style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold;
+                                               -fx-pref-width: 150px; -fx-padding: 12 0; -fx-background-radius: 8; -fx-font-size: 11px;"/>
+                                <Button text="📆 Week"
+                                        style="-fx-background-color: #e5e7eb; -fx-text-fill: #374151; -fx-font-weight: bold;
+                                               -fx-pref-width: 150px; -fx-padding: 12 0; -fx-background-radius: 8; -fx-font-size: 11px;"/>
+                            </HBox>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Separator -->
+                    <Region prefHeight="2" style="-fx-background-color: linear-gradient(to right, transparent, #e5e7eb, transparent);"/>
+
+                    <!-- Enhanced Table -->
+                    <TableView fx:id="scheduleTable" prefHeight="350" style="-fx-padding: 20 0 0 0;
+                              -fx-background-color: transparent; -fx-border-color: #e5e7eb;
+                              -fx-border-radius: 15; -fx-background-radius: 15;">
+                        <columns>
+                            <TableColumn text="👨‍⚕️ Doctor" prefWidth="200" fx:id="colDoctor"
+                                         style="-fx-text-fill: black; -fx-font-weight: bold; -fx-alignment: CENTER_LEFT;"/>
+                            <TableColumn text="📅 Date" prefWidth="150" fx:id="colDate"
+                                         style="-fx-text-fill: black; -fx-font-weight: bold; -fx-alignment: CENTER;"/>
+                            <TableColumn text="⏰ Time Slot" prefWidth="150" fx:id="colTime"
+                                         style="-fx-text-fill: black; -fx-font-weight: bold; -fx-alignment: CENTER;"/>
+                            <TableColumn text="🏥 Facility" prefWidth="200" fx:id="colFacility"
+                                         style="-fx-text-fill: black; -fx-font-weight: bold; -fx-alignment: CENTER_LEFT;"/>
+                            <TableColumn text="📊 Status" prefWidth="120" fx:id="colStatus"
+                                         style="-fx-text-fill: black; -fx-font-weight: bold; -fx-alignment: CENTER;"/>
+                            <TableColumn text="👥 Capacity" prefWidth="100" fx:id="colCapacity"
+                                         style="-fx-text-fill: black; -fx-font-weight: bold; -fx-alignment: CENTER;"/>
+                        </columns>
+                    </TableView>
+
+                    <!-- Table Footer -->
+                    <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-padding: 15 0 0 0;">
+                        <!-- Legend -->
+                        <HBox spacing="15">
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <Region prefWidth="15" prefHeight="15"
+                                        style="-fx-background-color: #10b981; -fx-background-radius: 7;"/>
+                                <Label text="Available"
+                                       style="-fx-font-size: 12px; -fx-text-fill: #374151; -fx-font-weight: bold;"/>
+                            </HBox>
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <Region prefWidth="15" prefHeight="15"
+                                        style="-fx-background-color: #f59e0b; -fx-background-radius: 7;"/>
+                                <Label text="Partially Booked"
+                                       style="-fx-font-size: 12px; -fx-text-fill: #374151; -fx-font-weight: bold;"/>
+                            </HBox>
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <Region prefWidth="15" prefHeight="15"
+                                        style="-fx-background-color: #dc2626; -fx-background-radius: 7;"/>
+                                <Label text="Fully Booked"
+                                       style="-fx-font-size: 12px; -fx-text-fill: #374151; -fx-font-weight: bold;"/>
+                            </HBox>
+                        </HBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <!-- Refresh Info -->
+                        <Label text="🔄 Last updated: 2 minutes ago"
+                               style="-fx-font-size: 11px; -fx-text-fill: #9ca3af; -fx-font-style: italic;"/>
+                    </HBox>
+                </VBox>
+            </StackPane>
+
+            <!-- Quick Actions Card -->
+            <StackPane>
+                <Region style="-fx-background-color: rgba(0,0,0,0.04); -fx-background-radius: 25;
+                              -fx-translate-x: 3; -fx-translate-y: 6;"/>
+
+                <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 22;
+                                          -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15,0,0,5);">
+
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <StackPane>
+                            <Region prefWidth="50" prefHeight="50"
+                                    style="-fx-background-color: #fef3c7; -fx-background-radius: 25;"/>
+                            <Label text="⚡" style="-fx-font-size: 24px;"/>
+                        </StackPane>
+                        <Label text="Quick Actions"
+                               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1f2937;"/>
+                    </HBox>
+
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <Button text="📞 Emergency Booking"
+                                style="-fx-background-color: #dc2626; -fx-text-fill: white;  -fx-font-weight: bold; -fx-pref-width: 180px; -fx-padding: 12 0;"/>
+                        <Button text="🔄 Reschedule Appointment"
+                                style="-fx-background-color: #0ea5e9; -fx-text-fill: white; -fx-font-weight: bold;
+                                         -fx-pref-width: 180px; -fx-padding: 12 0;"/>
+                        <Button text="❌ Cancel Appointment"
+                                style="-fx-background-color: #6b7280; -fx-text-fill: white; -fx-font-weight: bold;
+                                         -fx-pref-width: 180px; -fx-padding: 12 0;"/>
+                        <Button text="📧 Send Reminder"
+                                style="-fx-background-color: #7c3aed; -fx-text-fill: white; -fx-font-weight: bold;
+                                        -fx-pref-width: 180px; -fx-padding: 12 0;"/>
+                    </HBox>
+                </VBox>
+            </StackPane>
+
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

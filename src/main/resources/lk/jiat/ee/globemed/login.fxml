@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.jiat.ee.globemed.Login"
+            style="-fx-background-color: #f8fafc;"
+            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+    <!-- Background Decorative Elements -->
+    <Circle fill="#e0e7ff" radius="150" layoutX="200" layoutY="150" opacity="0.5" />
+    <Circle fill="#ddd6fe" radius="100" layoutX="1500" layoutY="200" opacity="0.4" />
+    <Circle fill="#fde68a" radius="80" layoutX="1600" layoutY="800" opacity="0.3" />
+    <Rectangle fill="#bfdbfe" width="200" height="200" layoutX="100" layoutY="700" arcWidth="30" arcHeight="30" opacity="0.3" />
+
+    <!-- Main Content Container -->
+    <HBox alignment="CENTER" spacing="100"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+
+        <!-- Left Side - Branding/Info -->
+        <VBox alignment="CENTER_LEFT" spacing="30" prefWidth="500" maxWidth="500">
+
+            <!-- Logo Section -->
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Rectangle fill="#3b82f6" width="50" height="50" arcWidth="15" arcHeight="15" />
+                <Label text="GlobeMed" style="-fx-text-fill: #1e293b; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="System Bold" size="36" />
+                    </font>
+                </Label>
+            </HBox>
+
+            <!-- Welcome Text -->
+            <VBox spacing="15">
+                <Label text="Welcome to your" style="-fx-text-fill: #64748b;">
+                    <font>
+                        <Font name="System" size="24" />
+                    </font>
+                </Label>
+                <Label text="Medical Management" style="-fx-text-fill: #1e293b; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="System Bold" size="28" />
+                    </font>
+                </Label>
+                <Label text="System" style="-fx-text-fill: #1e293b; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="System Bold" size="28" />
+                    </font>
+                </Label>
+            </VBox>
+
+            <!-- Feature Points -->
+            <VBox spacing="20">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Circle fill="#10b981" radius="8" />
+                    <Label text="Secure patient data management" style="-fx-text-fill: #475569; -fx-font-size: 16px;" />
+                </HBox>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Circle fill="#8b5cf6" radius="8" />
+                    <Label text="Real-time medical analytics" style="-fx-text-fill: #475569; -fx-font-size: 16px;" />
+                </HBox>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Circle fill="#f59e0b" radius="8" />
+                    <Label text="24/7 system availability" style="-fx-text-fill: #475569; -fx-font-size: 16px;" />
+                </HBox>
+            </VBox>
+
+        </VBox>
+
+        <!-- Right Side - Login Form -->
+        <VBox alignment="CENTER" spacing="30" prefWidth="450" maxWidth="450"
+              style="-fx-background-color: white; -fx-padding: 50; -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 30, 0.3, 0, 10);">
+
+            <!-- Login Header -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Sign In" style="-fx-text-fill: #1e293b; -fx-font-weight: bold;">
+                    <font>
+                        <Font name="System Bold" size="32" />
+                    </font>
+                </Label>
+                <Label text="Enter your credentials to access your account" style="-fx-text-fill: #64748b;">
+                    <font>
+                        <Font name="System" size="15" />
+                    </font>
+                </Label>
+            </VBox>
+
+            <!-- Form Fields -->
+            <VBox spacing="25" prefWidth="350">
+
+                <!-- Username Field -->
+                <VBox spacing="10">
+                    <Label text="Username" style="-fx-text-fill: #374151; -fx-font-weight: bold;">
+                        <font>
+                            <Font name="System Bold" size="14" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="usernameField" prefHeight="50"
+                               promptText="Enter your username"
+                               style="-fx-background-color: #f9fafb; -fx-border-color: #d1d5db; -fx-border-width: 2; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 20 0 20; -fx-font-size: 15px; -fx-prompt-text-fill: #9ca3af;">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </TextField>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="10">
+                    <Label text="Password" style="-fx-text-fill: #374151; -fx-font-weight: bold;">
+                        <font>
+                            <Font name="System Bold" size="14" />
+                        </font>
+                    </Label>
+                    <PasswordField fx:id="passwordField" prefHeight="50"
+                                   promptText="Enter your password"
+                                   style="-fx-background-color: #f9fafb; -fx-border-color: #d1d5db; -fx-border-width: 2; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 0 20 0 20; -fx-font-size: 15px; -fx-prompt-text-fill: #9ca3af;">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </PasswordField>
+                </VBox>
+
+                <!-- Login Button -->
+                <Button fx:id="loginButton" prefHeight="55" maxWidth="Infinity"
+                        text="Sign In" onAction="#login"
+                        style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-pref-width: 180px; -fx-padding: 12 0; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.3), 15, 0.4, 0, 5);">
+                    <font>
+                        <Font name="System Bold" size="16" />
+                    </font>
+                </Button>
+
+            </VBox>
+
+            <!-- Divider -->
+            <HBox alignment="CENTER" spacing="15" prefWidth="350">
+                <Rectangle fill="#e5e7eb" height="1" width="100" />
+                <Label text="or" style="-fx-text-fill: #9ca3af; -fx-font-size: 14px;" />
+                <Rectangle fill="#e5e7eb" height="1" width="100" />
+            </HBox>
+
+            <!-- Additional Options -->
+            <VBox alignment="CENTER" spacing="15">
+                <Hyperlink fx:id="forgotPasswordLink" text="Forgot your password?"
+                           style="-fx-text-fill: #3b82f6; -fx-font-size: 14px; -fx-underline: false; -fx-font-weight: bold;" />
+
+                <HBox alignment="CENTER" spacing="5">
+                    <Label text="Need help?" style="-fx-text-fill: #64748b; -fx-font-size: 13px;" />
+                    <Hyperlink text="Contact Support"
+                               style="-fx-text-fill: #8b5cf6; -fx-font-size: 13px; -fx-underline: false;" />
+                </HBox>
+            </VBox>
+
+        </VBox>
+
+    </HBox>
+
+    <!-- Footer -->
+    <HBox alignment="CENTER" spacing="30"
+          AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Label text="© 2024 GlobeMed Systems" style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;" />
+    </HBox>
+
+</AnchorPane>

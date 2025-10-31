@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.jiat.ee.globemed.Dashboard">
+
+    <!-- Header Section with Medical Blue Theme -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" spacing="20.0" style="-fx-background-color: #599be1; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);">
+            <children>
+                <!-- Logo and Title -->
+                <HBox alignment="CENTER_LEFT" spacing="15.0">
+                    <children>
+                        <VBox>
+                            <children>
+                                <Label text="GlobeMed Hospital" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="26.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Advanced Healthcare Management" textFill="#BBDEFB">
+                                    <font>
+                                        <Font size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <!-- Spacer -->
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Notifications -->
+                <Button style="-fx-background-color: #ecccc7; -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 10; -fx-effect: dropshadow(gaussian, rgba(255,87,34,0.4), 6, 0, 0, 2);" text="🔔">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+
+                <!-- User Info -->
+                <HBox alignment="CENTER" spacing="12.0">
+                    <children>
+                        <VBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Label fx:id="userNameLabel" text="" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="userRoleLabel" text="" textFill="#BBDEFB">
+                                    <font>
+                                        <Font size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Label style="-fx-background-color: #E8F5E8; -fx-text-fill: #2E7D32; -fx-background-radius: 30; -fx-padding: 8;" text="👩‍⚕️">
+                            <font>
+                                <Font size="22.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets left="30.0" right="30.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <!-- Sidebar Navigation with Medical Dark Blue -->
+    <left>
+        <VBox prefWidth="320.0" spacing="0.0" style="-fx-background-color: #2e7bdc;">
+            <children>
+                <!-- Dashboard Stats -->
+                <VBox spacing="18.0" style="-fx-padding: 25;">
+                    <children>
+                        <Label text="Dashboard Overview" textFill="#FFFFFF">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+
+                <Separator style="-fx-background-color: rgba(255,255,255,0.3);" />
+
+                <!-- Navigation Menu -->
+                <VBox spacing="5.0" style="-fx-padding: 15 25;">
+                    <children>
+                        <Label text="NAVIGATION" textFill="rgba(255,255,255,0.8)">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+
+                        <Button fx:id="dashboardBtn"  onAction="#loadDashboard" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308"  prefHeight="50.0" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(25,118,210,0.4), 6, 0, 0, 2);" text="🏠  Dashboard">
+                            <VBox.margin>
+                                <Insets top="12.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="patientsBtn" onAction="#handlePatients" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308"  prefHeight="50.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: #FFFFFF; -fx-background-radius: 12; -fx-border-color: transparent;" text="👥  Patient Records">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="appointmentsBtn" onAction="#handleAppointments" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308"  prefHeight="50.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: #FFFFFF; -fx-background-radius: 12; -fx-border-color: transparent;" text="📅  Appointments">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="billingBtn" onAction="#handleBilling" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308"  prefHeight="50.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: #FFFFFF; -fx-background-radius: 12; -fx-border-color: transparent;" text="💳  Billing &amp; Insurance">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="staffBtn" onAction="#handleRoles" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308"  prefHeight="50.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: #FFFFFF; -fx-background-radius: 12; -fx-border-color: transparent;" text="👨‍⚕️  Staff &amp; Permissions">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+
+                        <Button fx:id="reportsBtn" onAction="#handleReports" alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308"  prefHeight="50.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: #FFFFFF; -fx-background-radius: 12; -fx-border-color: transparent;" text="📊  Reports &amp; Analytics">
+                            <VBox.margin>
+                                <Insets top="8.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+
+                <!-- Bottom Menu -->
+                <Region VBox.vgrow="ALWAYS" />
+                <VBox spacing="8.0" style="-fx-padding: 25;">
+                    <children>
+                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: rgba(255,255,255,0.1); -fx-text-fill: rgba(255,255,255,0.9); -fx-background-radius: 12; -fx-border-color: transparent;" text="⚙️  Settings">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #df8787; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-weight: bold;" text="🚪  Logout">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+
+    <!-- Main Content Area with Clean Medical Background -->
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #FAFAFA; -fx-padding: 35;">
+            <children>
+                <!-- Dashboard Content (Default) -->
+                <ScrollPane fx:id="dashboardContent" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+                    <content>
+                        <VBox spacing="30.0">
+                            <children>
+                                <!-- Welcome Section with Medical Header -->
+                                <HBox alignment="CENTER_LEFT" spacing="25.0" style="-fx-background-color: #428ee3; -fx-background-radius: 15; -fx-padding: 35; -fx-effect: dropshadow(gaussian, rgba(21,101,192,0.2), 10, 0, 0, 4);">
+                                    <children>
+                                        <VBox spacing="12.0">
+                                            <children>
+                                                <Label  fx:id="userLabel" text="Welcome back, Dr. Silva! 👋" textFill="#FFFFFF">
+                                                    <font>
+                                                        <Font name="System Bold" size="32.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Here's what's happening at GlobeMed Hospital today" textFill="#BBDEFB">
+                                                    <font>
+                                                        <Font size="18.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="currentDateLabel" text="Sunday, August 17, 2025" textFill="#90CAF9">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Button  style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 25; -fx-padding: 15 30; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(76,175,80,0.4), 8, 0, 0, 3);" text="+ Add New Patient">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+
+                                <!-- Statistics Cards with Medical Theme -->
+                                <HBox spacing="25.0">
+                                    <children>
+                                        <!-- Today's Appointments -->
+                                        <VBox alignment="CENTER_LEFT" spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-border-color: #E3F2FD; -fx-border-radius: 15; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                                    <children>
+                                                        <Label style="-fx-background-color: #E3F2FD; -fx-text-fill: #1976D2; -fx-background-radius: 50; -fx-padding: 12;" text="📅">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label text="Today's Appointments" textFill="#37474F">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="todayApptsCountLabel" text="23" textFill="#1976D2">
+                                                    <font>
+                                                        <Font name="System Bold" size="38.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="5 pending, 18 completed" textFill="#757575">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Monthly Revenue -->
+                                        <VBox alignment="CENTER_LEFT" spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-border-color: #E0F2F1; -fx-border-radius: 15; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                                    <children>
+                                                        <Label style="-fx-background-color: #E0F2F1; -fx-text-fill: #00796B; -fx-background-radius: 50; -fx-padding: 12;" text="💰">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label text="Monthly Revenue" textFill="#37474F">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="monthlyRevenueLabel" text="Rs. 4,580,900" textFill="#00796B">
+                                                    <font>
+                                                        <Font name="System Bold" size="38.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="↗️ 12% increase from last month" textFill="#2E7D32">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Active Patients -->
+                                        <VBox alignment="CENTER_LEFT" spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-border-color: #E8F5E8; -fx-border-radius: 15; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                                    <children>
+                                                        <Label style="-fx-background-color: #E8F5E8; -fx-text-fill: #388E3C; -fx-background-radius: 50; -fx-padding: 12;" text="👥">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label text="Active Patients" textFill="#37474F">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="activePatientsLabel" text="1,247" textFill="#388E3C">
+                                                    <font>
+                                                        <Font name="System Bold" size="38.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="89 new this week" textFill="#757575">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Pending Claims -->
+                                        <VBox alignment="CENTER_LEFT" spacing="18.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-border-color: #FFF3E0; -fx-border-radius: 15; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                                    <children>
+                                                        <Label style="-fx-background-color: #FFF3E0; -fx-text-fill: #F57C00; -fx-background-radius: 50; -fx-padding: 12;" text="⏳">
+                                                            <font>
+                                                                <Font size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label text="Pending Claims" textFill="#37474F">
+                                                            <font>
+                                                                <Font name="System Bold" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+                                                <Label text="47" textFill="#F57C00">
+                                                    <font>
+                                                        <Font name="System Bold" size="38.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Total value: Rs. 2,35,600" textFill="#757575">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+
+                                <!-- Recent Activities and Quick Actions -->
+                                <HBox spacing="20.0">
+                                    <children>
+
+                                        <!-- Quick Actions -->
+                                        <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 25;" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                                    <children>
+                                                        <Label style="-fx-background-color: #1abc9c; -fx-text-fill: white; -fx-background-radius: 50; -fx-padding: 8;" text="⚡">
+                                                            <font>
+                                                                <Font size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label text="Quick Actions" textFill="#2c3e50">
+                                                            <font>
+                                                                <Font name="System Bold" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </HBox>
+
+                                                <VBox spacing="10.0">
+                                                    <children>
+                                                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #2672a5; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="👤  Add New Patient" />
+                                                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #1da155; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="📅  Schedule Appointment" />
+                                                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #e35591; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="💳  Generate Bill" />
+                                                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #81602c; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="📊  View Reports" />
+                                                        <Button alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="45.0" style="-fx-background-color: #67377a; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold;" text="👥  Manage Staff" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+
+            </children>
+        </StackPane>
+    </center>
+</BorderPane>
