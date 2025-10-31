@@ -1,75 +1,144 @@
-# GlobeMed 🩺 - Advanced Hospital Management System
+# 🩺 GlobeMed - Hospital Management System
 
-**A comprehensive, JavaFX-based desktop application for modern healthcare management.**
+**GlobeMed** is a modern, feature-rich desktop application for complete hospital management, built using **JavaFX**. It provides a clean, user-friendly interface for staff to manage patients, schedule appointments, handle billing, and control system permissions.
 
-GlobeMed is a feature-rich Hospital Management System (HMS) built with **JavaFX** and **Maven**. It provides a robust, secure, and user-friendly platform for managing all core hospital operations, from patient registration to complex insurance billing.
+This project is a deep dive into building robust, real-world applications and serves as a practical showcase for advanced **Object-Oriented Design Patterns**.
 
-This project isn't just a simple CRUD application; it's a practical showcase of advanced object-oriented design patterns to solve real-world problems in a clean, scalable, and maintainable way.
+---
 
-## ✨ Core Features
+## 🚀 Features
 
-* **🔐 Secure Authentication:** A secure login system for all staff members.
-* **👥 Patient Management:** Full CRUD (Create, Read, Update, Delete) capabilities for all patient records, including medical history.
-* **📅 Smart Appointment Scheduling:** An intuitive interface to book and manage patient appointments with specific doctors, departments, and time slots.
-* **💳 Billing & Insurance:** A powerful billing module to generate invoices, process payments (Cash, Card, Insurance), and manage complex, multi-step insurance claim approval workflows.
-* **🛡️ Role & Permission Control:** A granular system to create staff roles and assign specific permissions, ensuring employees can only access the modules they are authorized for.
-* **📄 Dynamic PDF Reporting:** Generate and open beautiful, print-ready PDF reports for patient bills and medical summaries.
+* **🔐 Secure Authentication**: Role-based login for staff (Doctors, Nurses, Admins) using a **Decorator Pattern** for secure handling.
+* **👥 Patient Records**: Full CRUD (Create, Read, Update, Delete) functionality for patient information and medical history.
+* **📅 Smart Scheduling**: An advanced appointment scheduler using the **Mediator Pattern** to manage complex dependencies between doctors, departments, dates, and available time slots.
+* **💳 Billing & Claims**:
+    * Generate and print beautiful PDF bills for patients.
+    * Handle multiple payment types (Cash, Card, Insurance) using the **Bridge Pattern**.
+    * Manage multi-step insurance claim approvals using a **Chain of Responsibility**.
+* **🛡️ Role & Permission Control**:
+    * Create custom staff roles (e.g., Admin, Doctor).
+    * Assign granular permissions (e.g., "Can delete patient") using a **Composite Pattern** to group simple and complex permissions.
+    * Enforce permissions using a **Chain of Responsibility** (`RoleHandler`).
+* **📊 PDF Report Generation**: Dynamically generate PDF medical reports using the **Visitor Pattern**.
 
-## 🛠️ Tech Stack
+---
 
-* **Core:** Java 17
-* **Framework:** JavaFX (for the modern desktop UI)
-* **Build Tool:** Apache Maven
-* **Database:** MySQL
-* **Libraries:**
-    * `mysql-connector-java`: For database connectivity.
-    * `com.github.librepdf:openpdf`: For generating PDF documents.
+## 🛠️ Tech Stack & Architecture
 
-## 🎓 A Showcase of Design Patterns
+* **Language**: **Java 17**
+* **Framework**: **JavaFX** (for the modern UI)
+* **Database**: **MySQL**
+* **Build Tool**: **Apache Maven**
+* **UI/UX**: FXML (`.fxml`) for layout design, with CSS styling.
+* **Architecture**: This project is built around **powerful Design Patterns** to ensure it is **Decoupled, Flexible, and Scalable**.
+    * **Decorator** (for `Login`)
+    * **Mediator** (for `AppointmentSchedule`)
+    * **Chain of Responsibility** (for `Billing` claims & `PatientView` permissions)
+    * **Bridge** (for `Billing` payments)
+    * **Composite** (for `ManagingRoles`)
+    * **Visitor** (for `Reports`)
 
-This project was built with a strong emphasis on clean architecture. It leverages several key design patterns to promote decoupling, flexibility, and maintainability.
+---
 
-* **Decorator Pattern:** Used in `Login.java` to add security features (like logging or encryption) to the core authentication service without modifying it.
-* **Mediator Pattern:** Implemented in `AppointmentSchedule.java` to manage the complex communication and dependencies between multiple UI controls (Department, Doctor, Date, Time Slot).
-* **Chain of Responsibility:**
-    * Used in `PatientView.java` to create an authorization chain (`AuthHandler`, `RoleHandler`) that checks if a user has the correct permissions for an action (View, Add, Update, Delete).
-    * Used in `Billing.java` to model the multi-step insurance claim approval process (`SubmitHandler`, `ManagerReviewHandler`, etc.).
-* **Bridge Pattern:** Implemented in `Billing.java` to decouple the high-level `BillingService` from the concrete payment implementations (`CashProcessor`, `CardProcessor`, `InsuranceProcessor`).
-* **Composite Pattern:** Used in `ManagingRoles.java` to treat individual permissions (`PermissionLeaf`) and groups of permissions (`PermissionCategoryComposite`) uniformly.
-* **Visitor Pattern:** Implemented in `Reports.java` to allow new types of reports (like PDF reports) to be generated from the patient data structure without modifying the data classes themselves.
+## 📁 Project Structure
 
-## 🚀 Getting Started
+```
 
-Follow these instructions to get a copy of the project up and running on your local machine.
+GlobeMed-HMS/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── lk/jiat/ee/globemed/
+│   │   │   │   ├── model/         \# Data models (Gender, Staff, etc.)
+│   │   │   │   ├── MainApplication.java \# Entry point
+│   │   │   │   ├── Login.java         \# Controllers
+│   │   │   │   ├── Dashboard.java
+│   │   │   │   ├── PatientView.java
+│   │   │   │   ├── AppointmentSchedule.java
+│   │   │   │   ├── Billing.java
+│   │   │   │   ├── ManagingRoles.java
+│   │   │   │   └── Reports.java
+│   │   │   └── module-info.java
+│   │   └── resources/
+│   │       └── lk/jiat/ee/globemed/
+│   │           ├── login.fxml       \# FXML Layouts
+│   │           ├── dashboard.fxml
+│   │           ├── patient\_view.fxml
+│   │           └── ... (all other .fxml files)
+├── .gitignore
+├── pom.xml          \# Maven dependencies and config
+└── README.md
+
+````
+
+---
+
+## 🧑‍💻 Getting Started
 
 ### Prerequisites
 
-* **Java Development Kit (JDK) 17** or higher.
+* **Java Development Kit (JDK) 17** or higher
 * **Apache Maven**
 * **MySQL Server** (running on `localhost:3306`)
 
-### 1. Database Setup
+### 1. Clone the Repository
+
+```bash
+git clone [https://github.com/your-username/GlobeMed-HMS.git](https://github.com/your-username/GlobeMed-HMS.git)
+cd GlobeMed-HMS
+````
+
+### 2\. Configure the Database
 
 1.  Start your MySQL server.
 2.  Create a new database named `globemed_db`.
     ```sql
     CREATE DATABASE globemed_db;
     ```
-3.  **Important:** You must manually create the tables required by the application (e.g., `staff`, `role`, `patient`, `appointment`, `billing`, etc.) by examining the `.java` files in the `lk.jiat.ee.globemed.model` and other packages.
-4.  Configure your database credentials in the `MySQLConnection.java` file:
-    * **File:** `src/main/java/lk/jiat/ee/globemed/model/MySQLConnection.java`
-    * **Default User:** `username`
-    * **Default Password:** `********`
-    * Update these values to match your local MySQL setup.
+3.  **Import the Database**: You will need to create the tables (`patient`, `staff`, `role`, `appointment`, `gender`, etc.) based on the SQL queries found in the `.java` files.
+4.  **Update Credentials**: Open the database connection file:
+      * `src/main/java/lk/jiat/ee/globemed/model/MySQLConnection.java`
+      * Update the username and password to match your MySQL setup.
+      * **Default User**: `username`
+      * **Default Password**: `******`
 
-### 2. Build and Run the Application
+### 3\. Build & Run
 
-1.  Open a terminal in the project's root directory (where `pom.xml` is located).
-2.  Install all dependencies using Maven:
-    ```sh
-    mvn clean install
-    ```
-3.  Run the application using the JavaFX Maven plugin:
+1.  Open the project in your favorite Java IDE (like **IntelliJ IDEA**).
+
+2.  Wait for Maven to download all dependencies (defined in `pom.xml`).
+
+3.  Run the application using the Maven JavaFX plugin. Open a terminal in the project root and run:
+
     ```sh
     mvn clean javafx:run
     ```
+
+    *(This command is configured in the `pom.xml` file)*
+
+4.  The application will launch, starting with the **Login** screen.
+
+-----
+
+## 📦 Key Dependencies
+
+  * `org.openjfx:javafx-controls`: Core JavaFX UI controls.
+  * `org.openjfx:javafx-fxml`: For loading the FXML UI layouts.
+  * `mysql:mysql-connector-java`: MySQL database driver.
+  * `com.github.librepdf:openpdf`: Library for creating PDF documents.
+  * `org.openjfx:javafx-maven-plugin`: To easily run the application.
+
+-----
+
+## 🤝 Contributing
+
+Pull requests are welcome\! For major changes, please open an issue first to discuss what you would like to change.
+
+-----
+
+## ✨ Credits
+
+Developed by **M. Nithushi Shavindi**
+
+```
+```
