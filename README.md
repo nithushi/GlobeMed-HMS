@@ -84,7 +84,7 @@ GlobeMed-HMS/
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/your-username/GlobeMed-HMS.git](https://github.com/your-username/GlobeMed-HMS.git)
+git clone [https://github.com/nithushi/GlobeMed-HMS.git](https://github.com/nithushi/GlobeMed-HMS.git)
 cd GlobeMed-HMS
 ````
 
@@ -139,6 +139,3 @@ Pull requests are welcome\! For major changes, please open an issue first to dis
 ## ✨ Credits
 
 Developed by **M. Nithushi Shavindi**
-
-```
-```
